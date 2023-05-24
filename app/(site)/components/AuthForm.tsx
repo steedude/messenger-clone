@@ -6,6 +6,8 @@ import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import AuthSocialButton from './AuthSocialButton';
 import { BsGithub, BsGoogle } from 'react-icons/bs';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 type Variant = 'LOGIN' | 'REGISTER';
 
@@ -37,14 +39,16 @@ const AuthForm = () => {
     defaultValues: {
       name: '',
       email: '',
-      passward: '',
+      password: '',
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = () => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
     if (variant === 'REGISTER') {
-      //Axios Register
+      axios
+        .post('/api/register', data)
+        .catch(() => toast.error('Something went Wromg!'));
     }
     if (variant === 'LOGIN') {
       //NextAuth SingnIn
