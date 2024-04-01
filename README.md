@@ -12,4 +12,4 @@ npm run dev
 
 ## 部署
 
-專案部署在[vercel](https://messenger-clone-rouge.vercel.app/)和[cloudflare](https://socinex.y2k77.com/)
+專案部署在[vercel](https://messenger-clone-rouge.vercel.app/)
